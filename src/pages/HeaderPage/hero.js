@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HeroComponent = () => {
+  const navigate = useNavigate();
   return (
     <div id="hero" className="section">
       <div className="row">
@@ -19,7 +21,9 @@ const HeroComponent = () => {
               your taste buds and leaves you longing for more.
             </p>
           </>
-          <button className="bg-btn">Book a table</button>
+          <button className="bg-btn" onClick={() => navigate("/booking")}>
+            Book a table
+          </button>
         </div>
         <img
           src="https://images.unsplash.com/photo-1592861956120-e524fc739696?q=80&w=517"

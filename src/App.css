@@ -97,3 +97,40 @@ nav img {
   color: #fff;
   max-width: 40%;
 }
+
+.available-slot {
+  background-color: rgba(0, 128, 0, 0.5);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.selected-slot {
+  background-color: darkgreen;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.booked-slot {
+  background-color: grey;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.form-control {
+  width: 200px;
+  margin-bottom: 40px;
+  padding: 10px;
+}
+
+.center-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
