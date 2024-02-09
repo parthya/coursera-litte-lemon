@@ -5,6 +5,7 @@ import BookingForm from "./BookingForm";
 const BookingPage = (props) => {
   const { availableTimes, bookingForm, setBookingForm, dispatch } =
     props;
+
   return (
     <div className="section">
       <BookingForm

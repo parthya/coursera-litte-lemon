@@ -15,6 +15,11 @@ const BookingForm = (props) => {
   const navigate = useNavigate();
 
   const [isBooking, setBooking] = useState(false)
+  const [isInvalid, setIsInvalid] = useState(false)
+
+  useEffect(() => {
+    areAllFieldsValid()
+  }, [bookingForm])
 
   useEffect(() => {
     dispatch({ type: "UPDATE_DATE", payload: { date: bookingForm.resDate } });
@@ -50,6 +55,23 @@ const BookingForm = (props) => {
     }
     setBooking(false);
   };
+
+  const areAllFieldsFilled = () => {
+    return Object.values(bookingForm).every(val => val);
+  }
+
+  const areAllFieldsValid = () => {
+    let valid = true;
+    if (!(bookingForm.guests >= 1 && bookingForm.guests <= 10)) {
+      valid = false;
+    }
+
+    if (Array.isArray(availableTimes) && !availableTimes.includes(bookingForm.resTime)) {
+      valid = false;
+    }
+
+    setIsInvalid(!valid)
+  }
 
   return (
     <form data-testid="form" style={{ display: "grid", gap: "10px" }}>
@@ -115,7 +137,7 @@ const BookingForm = (props) => {
             onClick={handleSubmit}
             aria-label="Make Your reservation"
             className="form-control"
-            disabled={isBooking}
+            disabled={isBooking || isInvalid || !areAllFieldsFilled()}
           />
         </>
       )}
